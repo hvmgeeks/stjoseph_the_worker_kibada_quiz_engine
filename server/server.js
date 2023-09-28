@@ -10,8 +10,12 @@ const examsRoute = require("./routes/examsRoute");
 const resportsRoute = require("./routes/reportsRoute");
 
 app.use(cors({
-  origin: 'http://localhost:3000' 
+  origin: 'http://localhost:3000',
+  methods: ['GET', 'POST']
 }));
+
+app.options('*', cors()); 
+
 
 app.use("/api/users", usersRoute);
 app.use("/api/exams", examsRoute);
